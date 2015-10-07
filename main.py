@@ -4,7 +4,6 @@ import sys
 import json
 import requests
 from time import sleep
-from pprint import pprint
 
 
 URL = 'https://api.github.com'

@@ -19,11 +19,9 @@ HEADERS = {
 def find_user(user):
     url = '{0}/search/users?q={1}&type=Users'.format(URL, user)
     resp = requests.get(url, headers=HEADERS)
-    pprint(resp.text)
     if resp.status_code in [400, 422, 500, 403, 404, 402]:
         return '{0} not found!'.format(user)
     jresp = json.loads(resp.text)
-    pprint(jresp)
     if jresp['total_count'] > 0:
         for u in jresp['items']:
             print('Found {0} - {1}'.format(u['login'], u['url']))
